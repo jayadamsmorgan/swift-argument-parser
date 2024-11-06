@@ -78,7 +78,7 @@ enum ParsedArgument: Equatable, CustomStringConvertible {
 /// This is a flat list of *values* and *options*. E.g. the
 /// arguments `["--foo", "bar"]` would be parsed into
 /// `[.option(.name(.long("foo"))), .value("bar")]`.
-struct SplitArguments {
+public struct SplitArguments {
   struct Element: Equatable {
     enum Value: Equatable {
       case option(ParsedArgument)
@@ -150,8 +150,8 @@ struct SplitArguments {
   }
   
   /// An index into the original input and the sub-index of an element.
-  struct Index: Hashable, Comparable {
-    static func < (lhs: SplitArguments.Index, rhs: SplitArguments.Index) -> Bool {
+  public struct Index: Hashable, Comparable {
+    public static func < (lhs: SplitArguments.Index, rhs: SplitArguments.Index) -> Bool {
       if lhs.inputIndex < rhs.inputIndex {
         return true
       } else if lhs.inputIndex == rhs.inputIndex {
@@ -204,7 +204,7 @@ extension SplitArguments.Element: CustomDebugStringConvertible {
 }
 
 extension SplitArguments.Index: CustomStringConvertible {
-  var description: String {
+  public var description: String {
     switch subIndex {
     case .complete: return "\(inputIndex.rawValue)"
     case .sub(let sub): return "\(inputIndex.rawValue).\(sub)"
@@ -213,7 +213,7 @@ extension SplitArguments.Index: CustomStringConvertible {
 }
 
 extension SplitArguments: CustomStringConvertible {
-  var description: String {
+  public var description: String {
     guard !isEmpty else { return "<empty>" }
     return elements
       .map { element -> String in

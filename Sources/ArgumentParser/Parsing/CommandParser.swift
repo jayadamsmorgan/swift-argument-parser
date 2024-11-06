@@ -11,7 +11,7 @@
 
 public struct CommandError: Error {
   var commandStack: [ParsableCommand.Type]
-  var parserError: ParserError
+  public var parserError: ParserError
 }
 
 struct HelpRequested: Error {

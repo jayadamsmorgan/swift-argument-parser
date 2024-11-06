@@ -13,12 +13,12 @@
 /// or ``Argument``. Fields that are directly declared on a ``ParsableComand``
 /// have a path of length 1, while fields that are declared indirectly (and
 /// included via an option group) have longer paths.
-struct InputKey: Hashable {
+public struct InputKey: Hashable {
   /// The name of the input key.
-  var name: String
+  public var name: String
 
   /// The path through the field's parents, if any.
-  var path: [String]
+  public var path: [String]
   
   /// The full path of the field.
   var fullPath: [String] { path + [name] }
@@ -50,7 +50,7 @@ struct InputKey: Hashable {
 }
 
 extension InputKey: CustomStringConvertible {
-  var description: String {
+  public var description: String {
       fullPathString
   }
 }

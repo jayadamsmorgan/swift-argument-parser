@@ -27,8 +27,8 @@
 ///
 /// The parsed value for the `count` property will come from indices `1` and
 /// `2`, while the value for `verbose` will come from index `1`, sub-index `0`.
-struct InputOrigin: Equatable, ExpressibleByArrayLiteral {
-  enum Element: Comparable, Hashable {
+public struct InputOrigin: Equatable, ExpressibleByArrayLiteral {
+  public enum Element: Comparable, Hashable {
     /// The input value came from a property's default value, not from a
     /// command line argument.
     case defaultValue
@@ -74,7 +74,7 @@ struct InputOrigin: Equatable, ExpressibleByArrayLiteral {
     _elements = Set([element])
   }
   
-  init(arrayLiteral elements: Element...) {
+  public init(arrayLiteral elements: Element...) {
     self.init(elements: elements)
   }
 
@@ -110,7 +110,7 @@ extension InputOrigin {
 }
 
 extension InputOrigin.Element {
-  static func < (lhs: Self, rhs: Self) -> Bool {
+  public static func < (lhs: Self, rhs: Self) -> Bool {
     switch (lhs, rhs) {
     case (.argumentIndex(let l), .argumentIndex(let r)):
       return l < r

@@ -9,7 +9,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-enum Name {
+public enum Name {
   /// A name (usually multi-character) prefixed with `--` (2 dashes) or equivalent.
   case long(String)
   /// A single character name prefixed with `-` (1 dash) or equivalent.
@@ -36,7 +36,7 @@ extension Name {
 // short argument names based on the synopsisString
 // this will put the single - options before the -- options
 extension Name: Comparable {
-  static func < (lhs: Name, rhs: Name) -> Bool {
+  public static func < (lhs: Name, rhs: Name) -> Bool {
     return lhs.synopsisString < rhs.synopsisString
   }
 }
