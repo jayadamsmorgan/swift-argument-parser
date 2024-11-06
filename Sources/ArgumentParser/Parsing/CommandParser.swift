@@ -9,7 +9,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-struct CommandError: Error {
+public struct CommandError: Error {
   var commandStack: [ParsableCommand.Type]
   var parserError: ParserError
 }
